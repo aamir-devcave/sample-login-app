@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%
+=begin%>
+ <%= render user %> 
+<%
+=end%>
+  <p> <span> <strong> <%= user.name %> </strong> <span> This is the name </p> 
+  <p> <strong> <%= user.email %> </strong></p> 
+  <p> <strong> <%= user.newcolumn %> This is Added Column </strong></p> 
+  <p> <strong> <%= user.password_digest %> This is Password </strong></p> 
+  
+  
+  <p>  <strong> Logged <%= time_ago_in_words(user.created_at)  %> ago </strong> </p> 
+
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_user_path %>
